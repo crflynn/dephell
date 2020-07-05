@@ -199,7 +199,7 @@ recommonmark = "*"
 pygments-github-lexers = "*"
 
 flake8-isort = "*"
-isort = {extras = ["pyproject"], version = "*"}
+isort = {extras = ["pyproject"], version = "<5"}
 # pre-commit = "*"
 
 [tool.poetry.extras]
