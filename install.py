@@ -63,6 +63,7 @@ class Context:
     @cached_property
     def parser(self):
         parser = ArgumentParser()
+        parser.add_argument('--path', help='install dephell to a specific path')
         parser.add_argument('--branch', help='install dephell from git from given branch')
         parser.add_argument('--version', help='install specified version')
         parser.add_argument('--slug', default='dephell/dephell',
@@ -96,6 +97,8 @@ class Context:
 
     @cached_property
     def data_dir(self) -> Path:
+        if self.args.path:
+            return Path(self.args.path)
         try:
             from appdirs import user_data_dir
         except ImportError:
